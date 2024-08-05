@@ -1,23 +1,23 @@
 const cosasQueAprendimos = [
   {
     tema: "terminal",
-    class: "",
+    class: "dom",
   },
   {
     tema: "node",
-    class: "",
+    class: "lenguaje",
   },
   {
     tema: "oop",
-    class: "",
+    class: "lenguaje",
   },
   {
     tema: "typescript",
-    class: "",
+    class: "lenguaje",
   },
   {
     tema: "css",
-    class: "",
+    class: "diseño",
   },
   {
     tema: "dom",
@@ -25,6 +25,22 @@ const cosasQueAprendimos = [
   },
 ];
 
-function main() {}
+const listaa = document.getElementsByClassName("lista")[0];
+const elementosLi = listaa.getElementsByTagName("li");
+for (let i = elementosLi.length - 1; i >= 0; i--) {
+  if (
+    elementosLi[i].textContent === "una opción" ||
+    elementosLi[i].textContent === "otra opción" ||
+    elementosLi[i].textContent === "otra opción más"
+  ) {
+    elementosLi[i].remove();
+  }
+}
 
-main();
+const lista = document.getElementsByClassName("lista")[0];
+cosasQueAprendimos.forEach((item) => {
+  const nuevoElemento = document.createElement("li");
+  nuevoElemento.textContent = item.tema;
+  nuevoElemento.classList.add(item.class);
+  lista.appendChild(nuevoElemento);
+});
